@@ -1,6 +1,6 @@
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
-import java.util.Date;
+// import java.text.ParseException;
+// import java.text.SimpleDateFormat;
+// import java.util.Date;
 
 public class Produto {
     private String nome;
@@ -44,27 +44,34 @@ public class Produto {
     }
 
     // criar aqui
-    public boolean estaVencido(Data data) throws ParseException {
+    // public boolean estaVencido(Data data) throws ParseException {
 
-        String dataProduto = this.dataValidade.getDia() + "/" + this.dataValidade.getMes() + "/"
-                + this.dataValidade.getAno();
+    // String dataProduto = this.dataValidade.getDia() + "/" +
+    // this.dataValidade.getMes() + "/"
+    // + this.dataValidade.getAno();
 
-        String dataEntrada = data.getDia() + "/" + data.getMes() + "/" + data.getAno();
+    // String dataEntrada = data.getDia() + "/" + data.getMes() + "/" +
+    // data.getAno();
 
-        Date start = new SimpleDateFormat("dd/MM/yyyy")
-                .parse(dataProduto.toString());
-        Date end = new SimpleDateFormat("dd/MM/yyyy")
-                .parse(dataEntrada.toString());
+    // Date start = new SimpleDateFormat("dd/MM/yyyy")
+    // .parse(dataProduto.toString());
+    // Date end = new SimpleDateFormat("dd/MM/yyyy")
+    // .parse(dataEntrada.toString());
 
-        if (start.compareTo(end) > 0) {
-            System.out.println("Produto ainda não venceu \n");
-            return false;
+    // if (start.compareTo(end) > 0) {
+    // System.out.println("PRODUTO NÃO VENCIDO\n");
+    // return false;
 
-        } else{
-            System.out.println("Produto venceu \n");
-            return true;
-        }
-            
-        
-    }
+    // } else{
+    // System.out.println("PRODUTO VENCIDO \n");
+    // return true;
+    // }
+
+    // }
+
+    // tentar algo por aqui:
+    // public boolean estaVencido(int dia, int mes, int ano) {
+    // return this.dataValidade.compareTo(dataAtual) < 0;
+    // }
+
 }
