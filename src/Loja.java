@@ -113,4 +113,16 @@ public class Loja {
 
     }
 
+    public void status() {
+        System.out.println("=========================================");
+        System.out.println("Informações da loja criada:");
+        System.out.println("Nome: " + getNome());
+        System.out.println("Quantidade de funcionários: " + getQuantidadeFuncionarios());
+        System.out.println("Salário base " + getSalarioBaseFuncionario());
+        System.out.println("Endereço: " + getEndereco()); // arrumar
+        System.out.println("Data de criação: " + getDataCriacao()); // arrumar
+        System.out.println("=========================================\n");
+
+    }
+
 }
