@@ -88,37 +88,28 @@ public class Loja {
         }
     }
 
-    public void criarLoja() {
+    public void criarLoja(Scanner scanner) {
         System.out.println("Criando uma loja");
-        Scanner scannerLoja = new Scanner(System.in);
 
         System.out.print("Digite o nome da Loja: ");
-        this.setNome(scannerLoja.nextLine());
+        scanner.nextLine();
+        this.setNome(scanner.nextLine());
 
         System.out.print("Digite a quantidade de funcionários da Loja: ");
-        this.setQuantidadeFuncionarios(scannerLoja.nextInt());
+        this.setQuantidadeFuncionarios(scanner.nextInt());
 
         System.out.print("Digite o salário base dos funcionários da Loja: ");
-        this.setSalarioBaseFuncionario(scannerLoja.nextFloat());
+        this.setSalarioBaseFuncionario(scanner.nextFloat());
 
         System.out.println("Digite o endereço da sua Loja: ");
         Endereco endereco = new Endereco(null, null, null, null, null, null, null);
-        endereco.criarEndereco();
+        endereco.criarEndereco(scanner);
 
         System.out.print("Digite a data de criação da loja (dd/MM/aaaa): ");
-
-        // this.setDataCriacao();
-
-        // // ARRUMAR - NÃO FUNCIONA
-        // System.out.print("Digite a data de criação da loja (dd/MM/aaaa): ");
-        // String data = scannerLoja.nextLine();
-        // String[] dataSeparada = data.split("/");
-
-        // this.setDataCriacao(Integer.parseInt(dataSeparada[0]),
-        // Integer.parseInt(dataSeparada[1]),
-        // Integer.parseInt(dataSeparada[2]));
-
-        scannerLoja.close();
+        String data = scanner.next();
+        String[] dataSeparada = data.split("/");
+        this.setDataCriacao(Integer.parseInt(dataSeparada[0]), Integer.parseInt(dataSeparada[1]),
+                Integer.parseInt(dataSeparada[2]));
 
     }
 
