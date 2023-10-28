@@ -16,13 +16,17 @@ public class Principal {
 
             switch (opcao) {
                 case 1:
-                    //Loja lojaTeste = new Loja(nome, quantidadeFuncionarios, salarioBaseFuncionario, null, null);
-                    
-                    break;
-                case 2:
-                    System.out.println("Criando um objeto");
+                    // Loja lojaTeste = new Loja(null, 0, 0, null, 1, 10, 2023);
+                    // lojaTeste.criarLoja();
 
                     break;
+                case 2:
+                    System.out.println("Criando um produto");
+                    Produto produtoTeste = new Produto("Sabonete", 2.5f, 10, 10, 2024);
+                    Data data = new Data(27, 10, 2023);
+                    produtoTeste.estaVencido(data);
+                    break;
+
                 case 3:
                     System.out.println("Saindo do programa.");
                     break;
