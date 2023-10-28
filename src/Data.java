@@ -63,4 +63,27 @@ public class Data {
             return false;
         }
     }
+
+    public int compareTo(Data outraData) {
+        if (this.ano < outraData.ano) {
+            return -1;
+        } else if (this.ano > outraData.ano) {
+            return 1;
+        } else {
+            if (this.mes < outraData.mes) {
+                return -1;
+            } else if (this.mes > outraData.mes) {
+                return 1;
+            } else {
+                if (this.dia < outraData.dia) {
+                    return -1;
+                } else if (this.dia > outraData.dia) {
+                    return 1;
+                } else {
+                    return 0; // As datas são iguais
+                }
+            }
+        }
+    }
+
 }
