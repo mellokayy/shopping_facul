@@ -82,31 +82,29 @@ public class Endereco {
                 + ", cep=" + cep + ", numero=" + numero + ", complemento=" + complemento + "]";
     }
 
-    public void criarEndereco() {
-        Scanner scannerEndereco = new Scanner(System.in);
+    public void criarEndereco(Scanner scanner) {
 
         System.out.print("Digite o nome da rua: ");
-        this.setNomeDaRua(scannerEndereco.nextLine());
+        scanner.nextLine();
+        this.setNomeDaRua(scanner.nextLine());
 
         System.out.print("Digite o nome da cidade: ");
-        this.setCidade(scannerEndereco.nextLine());
+        this.setCidade(scanner.nextLine());
 
         System.out.print("Digite o nome do estado: ");
-        this.setEstado(scannerEndereco.nextLine());
+        this.setEstado(scanner.nextLine());
 
         System.out.print("Digite o nome do pais: ");
-        this.setPais(scannerEndereco.nextLine());
+        this.setPais(scanner.nextLine());
 
         System.out.print("Digite seu CEP: ");
-        this.setCep(scannerEndereco.nextLine());
+        this.setCep(scanner.nextLine());
 
         System.out.print("Digite o número: ");
-        this.setNumero(scannerEndereco.nextLine());
+        this.setNumero(scanner.nextLine());
 
         System.out.print("Digite o complemento: ");
-        this.setComplemento(scannerEndereco.nextLine());
-
-        scannerEndereco.close();
+        this.setComplemento(scanner.nextLine());
 
     }
 
