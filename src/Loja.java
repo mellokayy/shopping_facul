@@ -8,12 +8,12 @@ public class Loja {
     private Data dataCriacao;
 
     public Loja(String nome, int quantidadeFuncionarios, float salarioBaseFuncionario, Endereco endereco,
-            Data dataCriacao) {
+            int dia, int mes, int ano) {
         this.setNome(nome);
         this.setQuantidadeFuncionarios(quantidadeFuncionarios);
         this.setSalarioBaseFuncionario(salarioBaseFuncionario);
         this.setEndereco(endereco);
-        this.setDataCriacao(dataCriacao);
+        this.setDataCriacao(dia, mes, ano);
     }
 
     public Loja(String nome, int quantidadeFuncionarios) {
@@ -58,8 +58,8 @@ public class Loja {
         return dataCriacao;
     }
 
-    public void setDataCriacao(Data dataCriacao) {
-        this.dataCriacao = dataCriacao;
+    public void setDataCriacao(int dia, int mes, int ano) {
+        this.dataCriacao = new Data(dia, mes, ano);
     }
 
     @Override
@@ -90,26 +90,35 @@ public class Loja {
 
     public void criarLoja() {
         System.out.println("Criando uma loja");
-        Scanner scanner = new Scanner(System.in);
+        Scanner scannerLoja = new Scanner(System.in);
 
         System.out.print("Digite o nome da Loja: ");
-        this.setNome(scanner.nextLine());
+        this.setNome(scannerLoja.nextLine());
 
         System.out.print("Digite a quantidade de funcionários da Loja: ");
-        this.setQuantidadeFuncionarios(scanner.nextInt());
+        this.setQuantidadeFuncionarios(scannerLoja.nextInt());
 
         System.out.print("Digite o salário base dos funcionários da Loja: ");
-        this.setSalarioBaseFuncionario(scanner.nextFloat());
+        this.setSalarioBaseFuncionario(scannerLoja.nextFloat());
 
-        System.out.print("Digite o endereço da sua Loja: ");
-
+        System.out.println("Digite o endereço da sua Loja: ");
         Endereco endereco = new Endereco(null, null, null, null, null, null, null);
         endereco.criarEndereco();
 
-        System.out.print("Digite a data de criação da loja: ");
-        this.setDataCriacao(dataCriacao);
+        System.out.print("Digite a data de criação da loja (dd/MM/aaaa): ");
 
-        scanner.close();
+        // this.setDataCriacao();
+
+        // // ARRUMAR - NÃO FUNCIONA
+        // System.out.print("Digite a data de criação da loja (dd/MM/aaaa): ");
+        // String data = scannerLoja.nextLine();
+        // String[] dataSeparada = data.split("/");
+
+        // this.setDataCriacao(Integer.parseInt(dataSeparada[0]),
+        // Integer.parseInt(dataSeparada[1]),
+        // Integer.parseInt(dataSeparada[2]));
+
+        scannerLoja.close();
 
     }
 
