@@ -1,13 +1,11 @@
-// import java.text.ParseException;
-// import java.text.SimpleDateFormat;
-// import java.util.Date;
+import java.util.Scanner;
 
 public class Produto {
     private String nome;
-    private float preco;
+    private double preco;
     private Data dataValidade;
 
-    public Produto(String nome, float preco, int dia, int mes, int ano) {
+    public Produto(String nome, double preco, int dia, int mes, int ano) {
         this.setNome(nome);
         this.setPreco(preco);
         this.setDataValidade(dia, mes, ano);
@@ -22,11 +20,11 @@ public class Produto {
         this.nome = nome;
     }
 
-    public float getPreco() {
+    public double getPreco() {
         return preco;
     }
 
-    public void setPreco(float preco) {
+    public void setPreco(double preco) {
         this.preco = preco;
     }
 
@@ -43,35 +41,30 @@ public class Produto {
         return "Produto [nome=" + nome + ", preco=" + preco + "]";
     }
 
-    // criar aqui
-    // public boolean estaVencido(Data data) throws ParseException {
+    public boolean estaVencido(int dia, int mes, int ano) {
+        if (this.dataValidade.compareTo(dia, mes, ano) > 0) {
+            System.out.println("PRODUTO NÃO VENCIDO\n");
+            return false;
+        } else {
+            System.out.println("PRODUTO VENCIDO \n");
+            return true;
+        }
+    }
 
-    // String dataProduto = this.dataValidade.getDia() + "/" +
-    // this.dataValidade.getMes() + "/"
-    // + this.dataValidade.getAno();
+    public void criarProduto(Scanner scanner) {
 
-    // String dataEntrada = data.getDia() + "/" + data.getMes() + "/" +
-    // data.getAno();
+        System.out.print("Digite o nome do produto: ");
+        scanner.nextLine();
+        this.setNome(scanner.nextLine());
 
-    // Date start = new SimpleDateFormat("dd/MM/yyyy")
-    // .parse(dataProduto.toString());
-    // Date end = new SimpleDateFormat("dd/MM/yyyy")
-    // .parse(dataEntrada.toString());
+        System.out.print("Digite o valor do produto: ");
+        this.setPreco(scanner.nextDouble());
 
-    // if (start.compareTo(end) > 0) {
-    // System.out.println("PRODUTO NÃO VENCIDO\n");
-    // return false;
-
-    // } else{
-    // System.out.println("PRODUTO VENCIDO \n");
-    // return true;
-    // }
-
-    // }
-
-    // tentar algo por aqui:
-    // public boolean estaVencido(int dia, int mes, int ano) {
-    // return this.dataValidade.compareTo(dataAtual) < 0;
-    // }
+        System.out.print("Digite a data de validade do produto (dd/MM/aaaa): ");
+        String data = scanner.next();
+        String[] dataSeparada = data.split("/");
+        this.setDataValidade(Integer.parseInt(dataSeparada[0]), Integer.parseInt(dataSeparada[1]),
+                Integer.parseInt(dataSeparada[2]));
+    }
 
 }
