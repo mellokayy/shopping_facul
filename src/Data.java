@@ -64,20 +64,20 @@ public class Data {
         }
     }
 
-    public int compareTo(Data outraData) {
-        if (this.ano < outraData.ano) {
+    public int compareTo(int dia, int mes, int ano) {
+        if (this.ano < ano) {
             return -1;
-        } else if (this.ano > outraData.ano) {
+        } else if (this.ano > ano) {
             return 1;
         } else {
-            if (this.mes < outraData.mes) {
+            if (this.mes < mes) {
                 return -1;
-            } else if (this.mes > outraData.mes) {
+            } else if (this.mes > mes) {
                 return 1;
             } else {
-                if (this.dia < outraData.dia) {
+                if (this.dia < dia) {
                     return -1;
-                } else if (this.dia > outraData.dia) {
+                } else if (this.dia > dia) {
                     return 1;
                 } else {
                     return 0; // As datas são iguais
