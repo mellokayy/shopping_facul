@@ -9,7 +9,8 @@ public class Endereco {
     private String numero;
     private String complemento;
 
-    public Endereco(String nomeDaRua, String cidade, String estado, String pais, String cep, String numero, String complemento) {
+    public Endereco(String nomeDaRua, String cidade, String estado, String pais, String cep, String numero,
+            String complemento) {
         this.getNomeDaRua();
         this.getCidade();
         this.getEstado();
@@ -82,30 +83,30 @@ public class Endereco {
     }
 
     public void criarEndereco() {
-        Scanner scanner = new Scanner(System.in);
+        Scanner scannerEndereco = new Scanner(System.in);
 
         System.out.print("Digite o nome da rua: ");
-        this.setNomeDaRua(scanner.nextLine());
+        this.setNomeDaRua(scannerEndereco.nextLine());
 
-        System.out.println("Digite o nome da cidade: ");
-        this.setCidade(scanner.nextLine());
+        System.out.print("Digite o nome da cidade: ");
+        this.setCidade(scannerEndereco.nextLine());
 
-        System.out.println("Digite o nome do estado: ");
-        this.setEstado(scanner.nextLine());
+        System.out.print("Digite o nome do estado: ");
+        this.setEstado(scannerEndereco.nextLine());
 
-        System.out.println("Digite o nome do pais: ");
-        this.setPais(scanner.nextLine());
+        System.out.print("Digite o nome do pais: ");
+        this.setPais(scannerEndereco.nextLine());
 
-        System.out.println("Digite seu CEP: ");
-        this.setCep(scanner.nextLine());
+        System.out.print("Digite seu CEP: ");
+        this.setCep(scannerEndereco.nextLine());
 
-        System.out.println("Digite o número: ");
-        this.setNumero(scanner.nextLine());
+        System.out.print("Digite o número: ");
+        this.setNumero(scannerEndereco.nextLine());
 
-        System.out.println("Digite o complemento: ");
-        this.setComplemento(scanner.nextLine());
+        System.out.print("Digite o complemento: ");
+        this.setComplemento(scannerEndereco.nextLine());
 
-        scanner.close();
+        scannerEndereco.close();
 
     }
 
