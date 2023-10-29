@@ -123,7 +123,7 @@ public class Loja {
         System.out.println("Nome: " + this.getNome());
         System.out.println("Quantidade de funcionários: " + this.getQuantidadeFuncionarios());
         System.out.println("Salário base " + this.getSalarioBaseFuncionario());
-        System.out.println("Endereço: " + endereco.getEnderecoCompleto());
+        System.out.println("Endereço: " + endereco.enderecoCompleto());
         System.out.println("Data de criação: " + this.getDataFundacao().getDia() + "/" + this.getDataFundacao().getMes()
                 + "/" + this.getDataFundacao().getAno()); // arrumar
         System.out.println("=========================================\n");

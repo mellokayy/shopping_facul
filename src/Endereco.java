@@ -21,7 +21,7 @@ public class Endereco {
     }
 
     public Endereco() {
-        
+
     }
 
     public String getNomeDaRua() {
@@ -108,6 +108,11 @@ public class Endereco {
         this.setNumero(scanner.nextLine());
 
         System.out.print("Digite o complemento: ");
-        this.setComplemento(scanner.nextLine());        
+        this.setComplemento(scanner.nextLine());
+    }
+
+    public String enderecoCompleto() {
+        return (this.getNomeDaRua() + ", " + this.getCidade() + ", " + this.getEstado() + ", " + this.getPais()
+                + ", " + this.getCep() + ", " + this.getNumero() + ", " + this.getComplemento());
     }
 }
