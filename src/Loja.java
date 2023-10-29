@@ -5,7 +5,7 @@ public class Loja {
     private int quantidadeFuncionarios;
     private float salarioBaseFuncionario;
     private Endereco endereco;
-    private Data dataCriacao;
+    private Data dataFundacao;
 
     public Loja(String nome, int quantidadeFuncionarios, float salarioBaseFuncionario, Endereco endereco,
             int dia, int mes, int ano) {
@@ -13,7 +13,7 @@ public class Loja {
         this.setQuantidadeFuncionarios(quantidadeFuncionarios);
         this.setSalarioBaseFuncionario(salarioBaseFuncionario);
         this.setEndereco(endereco);
-        this.setDataCriacao(dia, mes, ano);
+        this.setDataFundacao(dia, mes, ano);
     }
 
     public Loja(String nome, int quantidadeFuncionarios) {
@@ -58,12 +58,12 @@ public class Loja {
         this.endereco = endereco;
     }
 
-    public Data getDataCriacao() {
-        return dataCriacao;
+    public Data getDataFundacao() {
+        return dataFundacao;
     }
 
-    public void setDataCriacao(int dia, int mes, int ano) {
-        this.dataCriacao = new Data(dia, mes, ano);
+    public void setDataFundacao(int dia, int mes, int ano) {
+        this.dataFundacao = new Data(dia, mes, ano);
     }
 
     @Override
@@ -112,7 +112,7 @@ public class Loja {
         System.out.print("Digite a data de criação da loja (dd/MM/aaaa): ");
         String data = scanner.next();
         String[] dataSeparada = data.split("/");
-        this.setDataCriacao(Integer.parseInt(dataSeparada[0]), Integer.parseInt(dataSeparada[1]),
+        this.setDataFundacao(Integer.parseInt(dataSeparada[0]), Integer.parseInt(dataSeparada[1]),
                 Integer.parseInt(dataSeparada[2]));
 
     }
@@ -123,8 +123,9 @@ public class Loja {
         System.out.println("Nome: " + this.getNome());
         System.out.println("Quantidade de funcionários: " + this.getQuantidadeFuncionarios());
         System.out.println("Salário base " + this.getSalarioBaseFuncionario());
-        System.out.println("Endereço: " + endereco.getCidade()); // arrumar
-        System.out.println("Data de criação: " + this.getDataCriacao()); // arrumar
+        System.out.println("Endereço: " + endereco.getEnderecoCompleto());
+        System.out.println("Data de criação: " + this.getDataFundacao().getDia() + "/" + this.getDataFundacao().getMes()
+                + "/" + this.getDataFundacao().getAno()); // arrumar
         System.out.println("=========================================\n");
 
     }
