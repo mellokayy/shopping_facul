@@ -8,15 +8,15 @@ public class Loja {
     private Data dataFundacao;
 
     public Loja(String nome, int quantidadeFuncionarios, float salarioBaseFuncionario, Endereco endereco,
-            int dia, int mes, int ano) {
+            Data data) {
         this.setNome(nome);
         this.setQuantidadeFuncionarios(quantidadeFuncionarios);
         this.setSalarioBaseFuncionario(salarioBaseFuncionario);
         this.setEndereco(endereco);
-        this.setDataFundacao(dia, mes, ano);
+        this.setDataFundacao(data);
     }
 
-    public Loja(String nome, int quantidadeFuncionarios) {
+    public Loja(String nome, int quantidadeFuncionarios, Endereco endereco, Data data) {
         this.setNome(nome);
         this.setQuantidadeFuncionarios(quantidadeFuncionarios);
         this.setSalarioBaseFuncionario(-1);
@@ -24,6 +24,7 @@ public class Loja {
 
     public Loja() {
         this.endereco = new Endereco();
+        this.dataFundacao = new Data();
     }
 
     public String getNome() {
@@ -62,8 +63,8 @@ public class Loja {
         return dataFundacao;
     }
 
-    public void setDataFundacao(int dia, int mes, int ano) {
-        this.dataFundacao = new Data(dia, mes, ano);
+    public void setDataFundacao(Data data) {
+        this.dataFundacao = data;
     }
 
     @Override
@@ -110,22 +111,19 @@ public class Loja {
         endereco.criarEndereco(scanner);
 
         System.out.print("Digite a data de criação da loja (dd/MM/aaaa): ");
-        String data = scanner.next();
-        String[] dataSeparada = data.split("/");
-        this.setDataFundacao(Integer.parseInt(dataSeparada[0]), Integer.parseInt(dataSeparada[1]),
-                Integer.parseInt(dataSeparada[2]));
+        dataFundacao.criarData(scanner);
 
     }
 
-    public void status() {
+    public void statusLoja() {
         System.out.println("=========================================");
         System.out.println("Informações da loja criada:");
         System.out.println("Nome: " + this.getNome());
         System.out.println("Quantidade de funcionários: " + this.getQuantidadeFuncionarios());
         System.out.println("Salário base " + this.getSalarioBaseFuncionario());
-        System.out.println("Endereço: " + endereco.enderecoCompleto());
+        System.out.println("Endereço: " + this.getEndereco().enderecoCompleto());
         System.out.println("Data de criação: " + this.getDataFundacao().getDia() + "/" + this.getDataFundacao().getMes()
-                + "/" + this.getDataFundacao().getAno()); // arrumar
+                + "/" + this.getDataFundacao().getAno());
         System.out.println("=========================================\n");
 
     }
