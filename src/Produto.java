@@ -5,11 +5,15 @@ public class Produto {
     private double preco;
     private Data dataValidade;
 
-    public Produto(String nome, double preco, int dia, int mes, int ano) {
+    public Produto(String nome, double preco, Data dataValidade) {
         this.setNome(nome);
         this.setPreco(preco);
-        this.setDataValidade(dia, mes, ano);
+        this.setDataValidade(dataValidade);
 
+    }
+
+    public Produto() {
+        this.dataValidade = new Data();
     }
 
     public String getNome() {
@@ -32,8 +36,8 @@ public class Produto {
         return dataValidade;
     }
 
-    public void setDataValidade(int dia, int mes, int ano) {
-        this.dataValidade = new Data(dia, mes, ano);
+    public void setDataValidade(Data dataValidade) {
+        this.dataValidade = dataValidade;
     }
 
     @Override
@@ -41,8 +45,8 @@ public class Produto {
         return "Produto [nome=" + nome + ", preco=" + preco + "]";
     }
 
-    public boolean estaVencido(int dia, int mes, int ano) {
-        if (this.dataValidade.compareTo(dia, mes, ano) > 0) {
+    public boolean estaVencido(Data data) {
+        if (this.dataValidade.compareTo(data) > 0) {
             System.out.println("PRODUTO NÃO VENCIDO\n");
             return false;
         } else {
@@ -57,14 +61,22 @@ public class Produto {
         scanner.nextLine();
         this.setNome(scanner.nextLine());
 
-        System.out.print("Digite o valor do produto: ");
+        System.out.print("Digite o preço do produto: ");
         this.setPreco(scanner.nextDouble());
 
         System.out.print("Digite a data de validade do produto (dd/MM/aaaa): ");
-        String data = scanner.next();
-        String[] dataSeparada = data.split("/");
-        this.setDataValidade(Integer.parseInt(dataSeparada[0]), Integer.parseInt(dataSeparada[1]),
-                Integer.parseInt(dataSeparada[2]));
+        dataValidade.criarData(scanner);
+    }
+
+    public void statusProduto() {
+        System.out.println("=========================================");
+        System.out.println("Informações do produto criado:");
+        System.out.println("Nome: " + this.getNome());
+        System.out.println("Preço: " + this.getPreco());
+        System.out
+                .println("Data de validade: " + this.getDataValidade().getDia() + "/" + this.getDataValidade().getMes()
+                        + "/" + this.getDataValidade().getAno());
+        System.out.println("=========================================\n");
     }
 
 }
