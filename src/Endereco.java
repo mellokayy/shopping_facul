@@ -20,6 +20,10 @@ public class Endereco {
         this.getComplemento();
     }
 
+    public Endereco() {
+        
+    }
+
     public String getNomeDaRua() {
         return nomeDaRua;
     }
@@ -104,8 +108,6 @@ public class Endereco {
         this.setNumero(scanner.nextLine());
 
         System.out.print("Digite o complemento: ");
-        this.setComplemento(scanner.nextLine());
-
+        this.setComplemento(scanner.nextLine());        
     }
-
 }
