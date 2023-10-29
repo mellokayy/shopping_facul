@@ -16,10 +16,11 @@ public class Principal {
 
             switch (opcao) {
                 case 1:
-                    Loja lojaTeste = new Loja(null, 0, 0, null, 0, 0, 0);
+                    Loja lojaTeste = new Loja();
+
                     lojaTeste.criarLoja(scanner);
                     System.out.println("Loja " + lojaTeste.getNome() + " criada!\n");
-
+                    
                     lojaTeste.status();
 
                     break;
@@ -30,7 +31,6 @@ public class Principal {
                     produtoTeste.estaVencido(20, 10, 2023);
 
                     break;
-
                 case 3:
                     System.out.println("Saindo do programa.");
                     break;
