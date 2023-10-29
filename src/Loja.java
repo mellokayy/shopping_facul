@@ -22,6 +22,10 @@ public class Loja {
         this.setSalarioBaseFuncionario(-1);
     }
 
+    public Loja() {
+        this.endereco = new Endereco();
+    }
+
     public String getNome() {
         return nome;
     }
@@ -89,6 +93,7 @@ public class Loja {
     }
 
     public void criarLoja(Scanner scanner) {
+
         System.out.println("Criando uma loja");
 
         System.out.print("Digite o nome da Loja: ");
@@ -102,7 +107,6 @@ public class Loja {
         this.setSalarioBaseFuncionario(scanner.nextFloat());
 
         System.out.println("Digite o endereço da sua Loja: ");
-        Endereco endereco = new Endereco(null, null, null, null, null, null, null);
         endereco.criarEndereco(scanner);
 
         System.out.print("Digite a data de criação da loja (dd/MM/aaaa): ");
@@ -116,11 +120,11 @@ public class Loja {
     public void status() {
         System.out.println("=========================================");
         System.out.println("Informações da loja criada:");
-        System.out.println("Nome: " + getNome());
-        System.out.println("Quantidade de funcionários: " + getQuantidadeFuncionarios());
-        System.out.println("Salário base " + getSalarioBaseFuncionario());
-        System.out.println("Endereço: " + getEndereco()); // arrumar
-        System.out.println("Data de criação: " + getDataCriacao()); // arrumar
+        System.out.println("Nome: " + this.getNome());
+        System.out.println("Quantidade de funcionários: " + this.getQuantidadeFuncionarios());
+        System.out.println("Salário base " + this.getSalarioBaseFuncionario());
+        System.out.println("Endereço: " + endereco.getCidade()); // arrumar
+        System.out.println("Data de criação: " + this.getDataCriacao()); // arrumar
         System.out.println("=========================================\n");
 
     }
