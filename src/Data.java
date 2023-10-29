@@ -1,3 +1,5 @@
+import java.util.Scanner;
+
 public class Data {
     private int dia;
     private int mes;
@@ -29,6 +31,10 @@ public class Data {
             }
 
         }
+
+    }
+
+    public Data() {
 
     }
 
@@ -64,20 +70,29 @@ public class Data {
         }
     }
 
-    public int compareTo(int dia, int mes, int ano) {
-        if (this.ano < ano) {
+    public void criarData(Scanner scanner) {
+        String data = scanner.next();
+        String[] dataSeparada = data.split("/");
+        this.setDia(Integer.parseInt(dataSeparada[0]));
+        this.setMes(Integer.parseInt(dataSeparada[1]));
+        this.setAno(Integer.parseInt(dataSeparada[2]));
+
+    }
+
+    public int compareTo(Data data) {
+        if (this.ano < data.getAno()) {
             return -1;
-        } else if (this.ano > ano) {
+        } else if (this.ano > data.getAno()) {
             return 1;
         } else {
-            if (this.mes < mes) {
+            if (this.mes < data.getMes()) {
                 return -1;
-            } else if (this.mes > mes) {
+            } else if (this.mes > data.getMes()) {
                 return 1;
             } else {
-                if (this.dia < dia) {
+                if (this.dia < data.getDia()) {
                     return -1;
-                } else if (this.dia > dia) {
+                } else if (this.dia > data.getDia()) {
                     return 1;
                 } else {
                     return 0; // As datas são iguais
