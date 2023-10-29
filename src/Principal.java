@@ -20,15 +20,18 @@ public class Principal {
 
                     lojaTeste.criarLoja(scanner);
                     System.out.println("Loja " + lojaTeste.getNome() + " criada!\n");
-                    
-                    lojaTeste.status();
+                    System.out.println(lojaTeste.getEndereco());
+                    System.out.println(lojaTeste.getDataFundacao());
+                    lojaTeste.statusLoja();
 
                     break;
                 case 2:
                     System.out.println("Criando um produto");
-                    Produto produtoTeste = new Produto(null, 0, 0, 0, 0);
+                    Produto produtoTeste = new Produto();
                     produtoTeste.criarProduto(scanner);
-                    produtoTeste.estaVencido(20, 10, 2023);
+
+                    // produtoTeste.statusProduto();
+                    produtoTeste.estaVencido(new Data(10, 11, 2023));
 
                     break;
                 case 3:
