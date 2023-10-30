@@ -1,9 +1,9 @@
 import java.util.Scanner;
 
 public class Produto {
-    private String nome;
-    private double preco;
-    private Data dataValidade;
+    protected String nome;
+    protected double preco;
+    protected Data dataValidade;
 
     public Produto(String nome, double preco, Data dataValidade) {
         this.setNome(nome);
@@ -42,7 +42,7 @@ public class Produto {
 
     @Override
     public String toString() {
-        return "Produto [nome=" + nome + ", preco=" + preco + "]";
+        return "Produto [nome=" + nome + ", preco=" + preco + ", dataValidade=" + dataValidade + "]";
     }
 
     public boolean estaVencido(Data data) {
