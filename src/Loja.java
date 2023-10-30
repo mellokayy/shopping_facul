@@ -1,11 +1,11 @@
 import java.util.Scanner;
 
 public class Loja {
-    private String nome;
-    private int quantidadeFuncionarios;
-    private float salarioBaseFuncionario;
-    private Endereco endereco;
-    private Data dataFundacao;
+    protected String nome;
+    protected int quantidadeFuncionarios;
+    protected float salarioBaseFuncionario;
+    protected Endereco endereco;
+    protected Data dataFundacao;
 
     public Loja(String nome, int quantidadeFuncionarios, float salarioBaseFuncionario, Endereco endereco,
             Data data) {
@@ -74,7 +74,7 @@ public class Loja {
     @Override
     public String toString() {
         return "Loja [nome=" + nome + ", quantidadeFuncionarios=" + quantidadeFuncionarios + ", salarioBaseFuncionario="
-                + salarioBaseFuncionario + "]";
+                + salarioBaseFuncionario + ", endereco=" + endereco + ", dataFundacao=" + dataFundacao + "]";
     }
 
     public float gastosComSalario() {
