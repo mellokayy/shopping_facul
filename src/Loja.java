@@ -14,12 +14,16 @@ public class Loja {
         this.setSalarioBaseFuncionario(salarioBaseFuncionario);
         this.setEndereco(endereco);
         this.setDataFundacao(data);
+        this.endereco = new Endereco();
+        this.dataFundacao = new Data();
     }
 
     public Loja(String nome, int quantidadeFuncionarios, Endereco endereco, Data data) {
         this.setNome(nome);
         this.setQuantidadeFuncionarios(quantidadeFuncionarios);
         this.setSalarioBaseFuncionario(-1);
+        this.endereco = new Endereco();
+        this.dataFundacao = new Data();
     }
 
     public Loja() {
