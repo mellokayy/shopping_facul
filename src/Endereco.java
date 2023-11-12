@@ -11,13 +11,13 @@ public class Endereco {
 
     public Endereco(String nomeDaRua, String cidade, String estado, String pais, String cep, String numero,
             String complemento) {
-        this.getNomeDaRua();
-        this.getCidade();
-        this.getEstado();
-        this.getPais();
-        this.getCep();
-        this.getNumero();
-        this.getComplemento();
+        this.setNomeDaRua(nomeDaRua);;
+        this.setCidade(cidade);
+        this.setEstado(estado);
+        this.setPais(pais);
+        this.setCep(cep);
+        this.setNumero(numero);
+        this.setComplemento(complemento);
     }
 
     public Endereco() {
@@ -80,16 +80,9 @@ public class Endereco {
         this.complemento = complemento;
     }
 
-    @Override
-    public String toString() {
-        return "Endereco [nomeDaRua=" + nomeDaRua + ", cidade=" + cidade + ", estado=" + estado + ", pais=" + pais
-                + ", cep=" + cep + ", numero=" + numero + ", complemento=" + complemento + "]";
-    }
-
     public void criarEndereco(Scanner scanner) {
-
         System.out.print("Digite o nome da rua: ");
-        scanner.nextLine();
+        // scanner.nextLine();
         this.setNomeDaRua(scanner.nextLine());
 
         System.out.print("Digite o nome da cidade: ");
@@ -115,4 +108,12 @@ public class Endereco {
         return (this.getNomeDaRua() + ", " + this.getCidade() + ", " + this.getEstado() + ", " + this.getPais()
                 + ", " + this.getCep() + ", " + this.getNumero() + ", " + this.getComplemento());
     }
+
+    @Override
+    public String toString() {
+        return "Endereco\n nome Da Rua: " + nomeDaRua + "\ncidade: " + cidade + "\nestado: " + estado + "\npais: "
+                + pais
+                + "\ncep: " + cep + "\nnumero: " + numero + "\ncomplemento: " + complemento;
+    }
+
 }

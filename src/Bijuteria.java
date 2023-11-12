@@ -1,8 +1,10 @@
+import java.util.Scanner;
+
 public class Bijuteria extends Loja {
-    private double metaVendas;
+    private float metaVendas;
 
     public Bijuteria(String nome, int quantidadeFuncionarios, float salarioBaseFuncionario, Endereco endereco,
-            Data data, int estoqueProdutos, double metaVendas) {
+            Data data, int estoqueProdutos, float metaVendas) {
         super(nome, quantidadeFuncionarios, salarioBaseFuncionario, endereco, data, estoqueProdutos);
         this.setMetaVendas(metaVendas);
     }
@@ -12,20 +14,31 @@ public class Bijuteria extends Loja {
         this.setDataFundacao(new Data());
     }
 
-    public double getMetaVendas() {
+    public float getMetaVendas() {
         return metaVendas;
     }
 
-    public void setMetaVendas(double metaVendas) {
+    public void setMetaVendas(float metaVendas) {
         this.metaVendas = metaVendas;
     }
 
     @Override
+    public void criarLoja(Scanner scanner) {
+        super.criarLoja(scanner);
+        
+        System.out.print("Meta de vendas: ");
+        this.setMetaVendas(scanner.nextFloat());
+    }
+
+    @Override
+    public void statusLoja() {
+        super.statusLoja();
+        System.out.println("Meta de vendas: " + this.getMetaVendas());
+    }
+
+    @Override
     public String toString() {
-        return "Cosmetico [nome=" + nome + ", quantidadeFuncionarios=" + quantidadeFuncionarios
-                + ", salarioBaseFuncionario="
-                + salarioBaseFuncionario + ", endereco=" + endereco + ", dataFundacao=" + dataFundacao
-                + ", metaVendas=" + metaVendas + "]";
+        return "Bijuteria\n meta Vendas: " + metaVendas + super.toString();
     }
 
 }

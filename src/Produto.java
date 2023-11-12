@@ -40,11 +40,6 @@ public class Produto {
         this.dataValidade = dataValidade;
     }
 
-    @Override
-    public String toString() {
-        return "Produto [nome=" + nome + ", preco=" + preco + ", dataValidade=" + dataValidade + "]";
-    }
-
     public boolean estaVencido(Data data) {
         if (this.dataValidade.compareTo(data) > 0) {
             System.out.println("PRODUTO NÃO VENCIDO\n");
@@ -57,14 +52,14 @@ public class Produto {
 
     public void criarProduto(Scanner scanner) {
 
-        System.out.print("Digite o nome do produto: ");
+        System.out.print("Nome: ");
         scanner.nextLine();
         this.setNome(scanner.nextLine());
 
-        System.out.print("Digite o preço do produto: ");
+        System.out.print("Preço: ");
         this.setPreco(scanner.nextDouble());
 
-        System.out.print("Digite a data de validade do produto (dd/MM/aaaa): ");
+        System.out.print("Data de validade (dd/MM/aaaa): ");
         dataValidade.criarData(scanner);
     }
 
@@ -79,4 +74,8 @@ public class Produto {
         System.out.println("=========================================\n");
     }
 
+    @Override
+    public String toString() {
+        return "Produto [nome=" + nome + ", preco=" + preco + ", dataValidade=" + dataValidade + "]";
+    }
 }

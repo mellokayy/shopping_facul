@@ -5,99 +5,147 @@ public class Principal {
         Scanner scanner = new Scanner(System.in);
         int opcao;
 
-        do {
-            Shopping shopping = new Shopping("Teste Shopping", new Endereco(), 10);
+        System.out.println("=========================================");
+        System.out.println("Gerenciador de Shopping");
+        System.out.println("=========================================\n");
+        Shopping shopping = new Shopping();
+        shopping.criarShopping(scanner);
+        System.out.println("\n=========================================");
 
-            // System.out.println("Escolha uma opção:");
-            System.out.println("(1) criar uma loja");
+        do {
+            System.out.println("\n(1) criar uma loja");
             System.out.println("(2) criar um produto");
-            System.out.println("(3) sair");
+            System.out.println("(3) outras opções de gerenciamento");
+            System.out.println("(4) sair");
 
             System.out.print("Digite o número da opção desejada: ");
             opcao = scanner.nextInt();
 
+            System.out.println("\n=========================================");
+
             switch (opcao) {
                 case 1:
+                    int opcaoLoja;
                     do {
-                        System.out.println("\n(1) Alimentação");
-                        System.out.println("(2) Bijuteria");
-                        System.out.println("(3) Cosmetico");
-                        System.out.println("(4) Informatica");
-                        System.out.println("(5) Vestuario");
-                        System.out.println("(6) Voltar");
-                        System.out.print("Selecione a categoria desejada:");
+                        System.out.println("\n(1) alimentacao");
+                        System.out.println("(2) bijuteria");
+                        System.out.println("(3) cosmetico");
+                        System.out.println("(4) informatica");
+                        System.out.println("(5) vestuario");
+                        System.out.println("(6) voltar");
+                        System.out.print("selecione a categoria desejada: ");
+                        opcaoLoja = scanner.nextInt();
 
-                        opcao = scanner.nextInt();
-                        switch (opcao) {
+                        Loja loja = null;
+
+                        switch (opcaoLoja) {
                             case 1:
-                                Alimentacao a1 = new Alimentacao();
-                                a1.criarLoja(scanner);
-                                shopping.insereLoja(a1);
-
-                                System.out.println("Loja " + a1.getNome() + " criada!\n");
-
-                                a1.statusLoja();
-                                
+                                loja = new Alimentacao();
                                 break;
                             case 2:
-                                Bijuteria b1 = new Bijuteria();
-                                b1.criarLoja(scanner);
-                                System.out.println("Loja " + b1.getNome() + " criada!\n");
-
-                                b1.statusLoja();
+                                loja = new Bijuteria();
                                 break;
                             case 3:
-                                Cosmetico c1 = new Cosmetico();
-                                c1.criarLoja(scanner);
-                                System.out.println("Loja " + c1.getNome() + " criada!\n");
-
-                                c1.statusLoja();
+                                loja = new Cosmetico();
                                 break;
                             case 4:
-                                Informatica i1 = new Informatica();
-                                i1.criarLoja(scanner);
-                                System.out.println("Loja " + i1.getNome() + " criada!\n");
-
-                                i1.statusLoja();
+                                loja = new Informatica();
                                 break;
                             case 5:
-                                Vestuario v1 = new Vestuario();
-                                v1.criarLoja(scanner);
-                                System.out.println("Loja " + v1.getNome() + " criada!\n");
-
-                                v1.statusLoja();
+                                loja = new Vestuario();
                                 break;
-
                             case 6:
                                 System.out.println("Voltando...");
                                 break;
-
                             default:
                                 System.out.println("Opção inválida");
                                 break;
                         }
-                    } while (opcao != 6);
-                    shopping.toString();
 
+                        if (loja != null) {
+                            loja.criarLoja(scanner);
+                            shopping.insereLoja(loja);
+                            System.out.println("Loja " + loja.getNome() + " criada!\n");
+                            loja.statusLoja();
+                        }
+                    } while (opcaoLoja != 6);
                     break;
+
                 case 2:
-                    System.out.println("Criando um produto");
-                    Produto produtoTeste = new Produto();
-                    produtoTeste.criarProduto(scanner);
-
-                    // produtoTeste.statusProduto();
-                    produtoTeste.estaVencido(new Data(10, 11, 2023));
-
+                    System.out.print("Digite o nome da loja que deseja inserir o produto: ");
+                    scanner.next();
+                    String lojaInsereProduto = scanner.nextLine();
+                    shopping.adicionaProdutoEmLoja(lojaInsereProduto, scanner);
+                    
                     break;
                 case 3:
+                    int opcaoGerenciamento;
+                    do {
+                        System.out.println("\n(1) quantidade de lojas criadas");
+                        System.out.println("(2) remover loja");
+                        System.out.println("(3) loja seguro mais caro (informática)");
+                        System.out.println("(4) voltar");
+                        System.out.print("Selecione a categoria desejada: ");
+                        opcaoGerenciamento = scanner.nextInt();
+
+                        switch (opcaoGerenciamento) {
+                            case 1:
+                                scanner.nextLine();
+                                System.out.print("Digite o nome do tipo de loja:");
+                                String lojaTipo = scanner.nextLine();
+                                int quantidadeLojas = shopping.quantidadeLojasPorTipo(lojaTipo);
+
+                                if (quantidadeLojas > 0) {
+                                    System.out
+                                            .println("A quantidade de lojas do tipo selecionado é: " + quantidadeLojas);
+                                } else {
+                                    System.out.println("Não existem lojas do tipo selecionado.");
+                                }
+
+                                break;
+
+                            case 2:
+                                scanner.nextLine();
+                                System.out.print("Digite o nome da loja que deseja remover:");
+                                String lojaNome = scanner.nextLine();
+                                boolean lojaRemovida = shopping.removeLoja(lojaNome);
+
+                                if (lojaRemovida) {
+                                    System.out.println("A loja foi removida com sucesso!");
+                                } else {
+                                    System.out.println("A loja não foi removida: Nome não encontrado!");
+                                }
+
+                            case 3:
+                                if (shopping.quantidadeLojasPorTipo("Informatica") > 0) {
+                                    System.out.println("A loja que possui o seguro mais caro é: ");
+                                    shopping.lojaSeguroMaisCaro().statusLoja();
+
+                                } else {
+                                    System.out.println("Não existem lojas desse tipo!");
+                                }
+
+                            case 4:
+                                System.out.println("Voltando...");
+                                break;
+                            default:
+                                System.out.println("Opção inválida");
+                                break;
+                        }
+                    } while (opcaoGerenciamento != 4);
+
+                case 4:
                     System.out.println("Saindo do programa...");
                     break;
+
                 default:
                     System.out.println("Opção inválida");
                     break;
             }
-        } while (opcao != 3);
+        } while (opcao != 4);
 
         scanner.close();
+
+        shopping.statusShopping();
     }
 }

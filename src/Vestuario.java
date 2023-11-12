@@ -8,7 +8,7 @@ public class Vestuario extends Loja {
     }
 
     public Vestuario() {
-        
+
     }
 
     public boolean getProdutosImportados() {
@@ -21,10 +21,6 @@ public class Vestuario extends Loja {
 
     @Override
     public String toString() {
-        return "Vestuario [nome=" + nome + ", quantidadeFuncionarios=" + quantidadeFuncionarios
-                + ", salarioBaseFuncionario="
-                + salarioBaseFuncionario + ", endereco=" + endereco + ", dataFundacao=" + dataFundacao
-                + ", produtosImportados=" + produtosImportados + "]";
+        return "Vestuario\n produtos Importados: " + produtosImportados + super.toString();
     }
-
 }

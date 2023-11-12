@@ -1,6 +1,7 @@
 import java.util.Scanner;
 
 public class Loja {
+    // Atributos
     protected String nome;
     protected int quantidadeFuncionarios;
     protected float salarioBaseFuncionario;
@@ -8,6 +9,7 @@ public class Loja {
     protected Data dataFundacao;
     protected Produto[] estoqueProdutos;
 
+    // Contrutor
     public Loja(String nome, int quantidadeFuncionarios, float salarioBaseFuncionario, Endereco endereco,
             Data data, int estoqueProdutos) {
         this.setNome(nome);
@@ -32,8 +34,10 @@ public class Loja {
     public Loja() {
         this.setEndereco(new Endereco());
         this.setDataFundacao(new Data());
+        this.setEstoqueProdutos(new Produto[0]);
     }
 
+    // Getters e setters
     public String getNome() {
         return nome;
     }
@@ -82,6 +86,7 @@ public class Loja {
         this.estoqueProdutos = estoqueProdutos;
     }
 
+    // Métodos específicos
     public float gastosComSalario() {
         float valorGastoSalario = 0;
         if (this.getSalarioBaseFuncionario() == -1) {
@@ -104,36 +109,42 @@ public class Loja {
 
     public void criarLoja(Scanner scanner) {
 
-        System.out.println("Criando uma loja");
+        System.out.println("Criando uma loja do tipo selecionado...");
 
-        System.out.print("Digite o nome da Loja: ");
+        System.out.print("Nome: ");
         scanner.nextLine();
         this.setNome(scanner.nextLine());
 
-        System.out.print("Digite a quantidade de funcionários da Loja: ");
-        this.setQuantidadeFuncionarios(scanner.nextInt());
-
-        System.out.print("Digite o salário base dos funcionários da Loja: ");
-        this.setSalarioBaseFuncionario(scanner.nextFloat());
-
-        System.out.println("Digite o endereço da sua Loja: ");
+        System.out.println("Endereço: ");
         endereco.criarEndereco(scanner);
 
-        System.out.print("Digite a data de criação da loja (dd/MM/aaaa): ");
+        System.out.print("Quantidade de funcionários: ");
+        this.setQuantidadeFuncionarios(scanner.nextInt());
+
+        System.out.print("Salário base dos funcionários: ");
+        this.setSalarioBaseFuncionario(scanner.nextFloat());
+
+        System.out.print("Data de criação (dd/MM/aaaa): ");
         dataFundacao.criarData(scanner);
+
+        System.out.print("Quantidade máxima de produtos no estoque: ");
+        this.setEstoqueProdutos(new Produto[scanner.nextInt()]);
 
     }
 
     public void statusLoja() {
-        System.out.println("=========================================");
-        System.out.println("Informações da loja criada:");
+        // System.out.println("=========================================");
+        System.out.println("Informações da loja:");
         System.out.println("Nome: " + this.getNome());
         System.out.println("Quantidade de funcionários: " + this.getQuantidadeFuncionarios());
+        System.out.println("Tamanho da loja: " + this.tamanhoDaLoja());
         System.out.println("Salário base " + this.getSalarioBaseFuncionario());
+        System.out.println("Valor total gasto com salários: " + this.gastosComSalario());
         System.out.println("Endereço: " + this.getEndereco().enderecoCompleto());
         System.out.println("Data de criação: " + this.getDataFundacao().getDia() + "/" + this.getDataFundacao().getMes()
                 + "/" + this.getDataFundacao().getAno());
-        System.out.println("=========================================\n");
+        System.out.println("Tamanho do estoque: " + this.getEstoqueProdutos().length);
+        // System.out.println("=========================================\n");
 
     }
 
@@ -161,18 +172,11 @@ public class Loja {
         return false;
     }
 
-    public String getTipo() {
-        return null;
-    }
-
-    public double getValorSeguroEletronicos() {
-        return 0;
-    }
-
     @Override
     public String toString() {
-        return "Loja [nome=" + nome + ", quantidadeFuncionarios=" + quantidadeFuncionarios + ", salarioBaseFuncionario="
-                + salarioBaseFuncionario + ", endereco=" + endereco + ", dataFundacao=" + dataFundacao + "]";
+        return "\nnome: " + nome + "\nquantidade Funcionarios: " + quantidadeFuncionarios
+                + "\nsalario Base Funcionario: "
+                + salarioBaseFuncionario + "\nendereco: " + endereco + "\ndata Fundacao: " + dataFundacao;
     }
 
 }
