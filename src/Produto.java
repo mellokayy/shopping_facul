@@ -53,7 +53,6 @@ public class Produto {
     public void criarProduto(Scanner scanner) {
 
         System.out.print("Nome: ");
-        scanner.nextLine();
         this.setNome(scanner.nextLine());
 
         System.out.print("Preço: ");

@@ -73,10 +73,10 @@ public class Principal {
 
                 case 2:
                     System.out.print("Digite o nome da loja que deseja inserir o produto: ");
-                    scanner.next();
                     String lojaInsereProduto = scanner.nextLine();
+                    lojaInsereProduto = scanner.nextLine();
                     shopping.adicionaProdutoEmLoja(lojaInsereProduto, scanner);
-                    
+
                     break;
                 case 3:
                     int opcaoGerenciamento;

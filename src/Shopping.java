@@ -1,4 +1,3 @@
-import java.util.Arrays;
 import java.util.Scanner;
 
 public class Shopping {
@@ -135,13 +134,20 @@ public class Shopping {
     }
 
     public void adicionaProdutoEmLoja(String lojaInsereProduto, Scanner scanner) {
-       //socorro
+        for (Loja loja : lojas) {
+            if (loja != null) {
+                if (loja.getNome().trim().equalsIgnoreCase(lojaInsereProduto.trim())) {
+                    Produto produto = new Produto();
+                    produto.criarProduto(scanner);
+                    loja.insereProduto(produto);
+                }
+            }
+        }
     }
 
-    // Verificar a possibilidade de tirar o array to string
     @Override
     public String toString() {
-        return "Shopping\n nome: " + nome + "\nendereco: " + endereco + "\nlojas: " + Arrays.toString(lojas);
+        return "Shopping\n nome: " + nome + "\nendereco: " + endereco + "\nlojas: " + lojas.length;
     }
 
 }
