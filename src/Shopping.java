@@ -70,7 +70,7 @@ public class Shopping {
                 quantidadeLojas += 1;
             } else if (lojaTipo.equalsIgnoreCase("Cosmetico") && loja instanceof Cosmetico) {
                 quantidadeLojas += 1;
-            } else if (lojaTipo.equalsIgnoreCase("Informatica") && loja instanceof Informatica) {
+            } else if (lojaTipo.equalsIgnoreCase("Informática") && loja instanceof Informatica) {
                 quantidadeLojas += 1;
             } else if (lojaTipo.equalsIgnoreCase("Vestuario") && loja instanceof Vestuario) {
                 quantidadeLojas += 1;
