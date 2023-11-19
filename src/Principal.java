@@ -64,9 +64,13 @@ public class Principal {
 
                         if (loja != null) {
                             loja.criarLoja(scanner);
-                            shopping.insereLoja(loja);
-                            System.out.println("Loja " + loja.getNome() + " criada!\n");
-                            loja.statusLoja();
+                            if (shopping.insereLoja(loja)) {
+                                System.out.println("Loja " + loja.getNome() + " criada!\n");
+                                loja.statusLoja();
+                            } else {
+                                System.out.println("Loja não adicionada.");
+                            }
+
                         }
                     } while (opcaoLoja != 6);
                     break;

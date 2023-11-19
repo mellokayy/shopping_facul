@@ -95,7 +95,7 @@ public class Data {
                 } else if (this.dia > data.getDia()) {
                     return 1;
                 } else {
-                    return 0; // As datas são iguais
+                    return 0;
                 }
             }
         }
